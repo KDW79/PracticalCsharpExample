@@ -158,7 +158,7 @@ namespace Ch14_etcConsole
                         Console.WriteLine("최저기온: " + xtmn.Value);
                         Console.WriteLine("최고기온: " + xtmx.Value);
                         Console.WriteLine("강수확률: " + xrnSt.Value);
-
+                          
                     }
                     Console.WriteLine("");
 
