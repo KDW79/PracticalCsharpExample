@@ -10,6 +10,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Collections.Specialized;
 using System.IO.Compression;
+using System.Collections.ObjectModel;
 
 namespace Ch14_etcConsole
 {
@@ -69,11 +70,35 @@ namespace Ch14_etcConsole
             //GetWikipediaData();
 
             var archiveFile = @"D:\example.zip";
-            var destinationFolder = @"D:\";
-            if (Directory.Exists(destinationFolder))
-            {
-                ZipFile.ExtractToDirectory(archiveFile, destinationFolder);
-            }
+            //var destinationFolder = @"D:\";
+            //if (Directory.Exists(destinationFolder))
+            //{
+            //    ZipFile.ExtractToDirectory(archiveFile, destinationFolder);
+            //}
+
+            //using (ZipArchive zip = ZipFile.OpenRead(archiveFile))
+            //{
+            //    var entries = zip.Entries;
+            //    foreach (var entry in entries)
+            //    {
+            //        Console.WriteLine("{0}, {1}", entry.FullName, entry.GetHashCode());
+            //    }
+            //}
+
+            //using (var zip = ZipFile.OpenRead(archiveFile))
+            //{
+            //    var entry = zip.Entries.FirstOrDefault(x => x.Name == name);
+            //    if (entry != null)
+            //    {
+            //        var destPath = Path.Combine(@"d:\", entry.FullName);
+            //        Directory.CreateDirectory(Path.GetDirectoryName(destPath));
+            //        entry.ExtractToFile(destPath, overwrite: true);
+            //    }
+            //}
+
+            var sourceFolder = @"d:\example";
+            var archiveFile24 = @"d:\newArchive.zip";
+            ZipFile.CreateFromDirectory(sourceFolder, archiveFile24, CompressionLevel.Fastest, includeBaseDirectory: false);
         }
 
         static public void GetWikipediaData()
