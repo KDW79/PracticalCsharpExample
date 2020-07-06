@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Xml;
+using System.Xml.Linq;
+using System.Net;
+using System.IO;
 
 namespace Ch15_AsyncForm
 {
@@ -117,6 +121,39 @@ namespace Ch15_AsyncForm
             var str = await _httpClient.GetStringAsync(urlstr);
             return str;
         }
+
+        // ex16.11
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            textBlock11.Text = "";
+            var text = await GetFromWikipediaAsync("청정실");
+            textBlock11.Text = text;
+        }
+
+        private async Task<string> GetFromWikipediaAsync(string keyword)
+        {
+            var builder = new UriBuilder("https://ko.wikipedia.org/w/api.php");
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>()
+            {
+                ["action"] = "query",
+                ["prop"] = "revisions",
+                ["rvprop"] = "content",
+                ["format"] = "xml",
+                ["titles"] = "keyword",
+            });
+            builder.Query = await content.ReadAsStringAsync();
+
+            var str = await _httpClient.GetStringAsync(builder.Uri);
+
+            var xmldoc = XDocument.Parse(str);
+            var rev = xmldoc.Root.Descendants("rev").FirstOrDefault();
+            return WebUtility.HtmlDecode(rev?.Value);
+
+        }
+
+    
+
+
 
         //
     }

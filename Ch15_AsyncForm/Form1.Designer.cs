@@ -39,6 +39,9 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBlock = new System.Windows.Forms.TextBox();
+            this.textBlock11 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -143,11 +146,40 @@
             this.textBlock.Size = new System.Drawing.Size(125, 21);
             this.textBlock.TabIndex = 10;
             // 
+            // textBlock11
+            // 
+            this.textBlock11.Location = new System.Drawing.Point(430, 82);
+            this.textBlock11.Name = "textBlock11";
+            this.textBlock11.Size = new System.Drawing.Size(125, 21);
+            this.textBlock11.TabIndex = 13;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(430, 30);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(60, 46);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "ex16.11";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(430, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "label6";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 240);
+            this.Controls.Add(this.textBlock11);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBlock);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
@@ -179,6 +211,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBlock;
+        private System.Windows.Forms.TextBox textBlock11;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label6;
     }
 }
 
